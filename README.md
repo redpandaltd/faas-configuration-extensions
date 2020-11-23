@@ -1,18 +1,18 @@
 # OpenFaaS Configuration Extensions
 
-This is part of OpenFaaS C# Template. It provides configuration extensions.
+This is part of OpenFaaS ASPNET Template. It provides configuration extensions.
 
 ## Installing
 
 Add a package reference from NuGet
 
 ```
-dotnet add package Redpanda.OpenFaaS.Extensions.Configuration
+dotnet add package Redpanda.Extensions.OpenFaaS.Configuration
 ```
 
 ## Secrets
 
-Secrets that the function has access to are lodaded into ASPNET Core's configuration model. Although they can be manually retrieved, this extension simplifies the process, particularly because they are stored as a base64 string, supporting both binary and text content.
+Secrets that the function has access to are lodaded into ASPNET's configuration model. Although they can be manually retrieved, this extension simplifies the process, particularly because they are stored as a base64 string, supporting both binary and text content.
 
 ```csharp
 public void ConfigureServices( IServiceCollection services )
@@ -22,7 +22,7 @@ public void ConfigureServices( IServiceCollection services )
     // add your services here.
     services.AddMyService( options =>
     {
-        // reads the secret as it was stored, as a byte[]
+        // reads the secret as it was stored, a byte[]
         options.BinaryCertificate = Configuration.GetSecret( "secret-certificate" );
     } );
 
